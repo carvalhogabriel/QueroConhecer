@@ -15,6 +15,7 @@
 		F2894DDE2242C81500F93576 /* PlacesTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2894DDD2242C81500F93576 /* PlacesTableViewController.swift */; };
 		F2894DE02242CAA500F93576 /* PlaceFinderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2894DDF2242CAA500F93576 /* PlaceFinderViewController.swift */; };
 		F2894DE22242D1F100F93576 /* MapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2894DE12242D1F100F93576 /* MapViewController.swift */; };
+		F2894DE42242D88800F93576 /* Place.swift in Sources */ = {isa = PBXBuildFile; fileRef = F2894DE32242D88800F93576 /* Place.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +29,7 @@
 		F2894DDD2242C81500F93576 /* PlacesTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlacesTableViewController.swift; sourceTree = "<group>"; };
 		F2894DDF2242CAA500F93576 /* PlaceFinderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlaceFinderViewController.swift; sourceTree = "<group>"; };
 		F2894DE12242D1F100F93576 /* MapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewController.swift; sourceTree = "<group>"; };
+		F2894DE32242D88800F93576 /* Place.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Place.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,6 +66,7 @@
 				F2894DCD2242C6FF00F93576 /* ViewController.swift */,
 				F2894DCF2242C6FF00F93576 /* Main.storyboard */,
 				F2894DE12242D1F100F93576 /* MapViewController.swift */,
+				F2894DE32242D88800F93576 /* Place.swift */,
 				F2894DDF2242CAA500F93576 /* PlaceFinderViewController.swift */,
 				F2894DDD2242C81500F93576 /* PlacesTableViewController.swift */,
 				F2894DD22242C70000F93576 /* Assets.xcassets */,
@@ -149,6 +152,7 @@
 				F2894DE02242CAA500F93576 /* PlaceFinderViewController.swift in Sources */,
 				F2894DE22242D1F100F93576 /* MapViewController.swift in Sources */,
 				F2894DDE2242C81500F93576 /* PlacesTableViewController.swift in Sources */,
+				F2894DE42242D88800F93576 /* Place.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
