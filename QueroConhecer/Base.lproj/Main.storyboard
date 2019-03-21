@@ -56,7 +56,7 @@
                         <barButtonItem key="backBarButtonItem" title=" " id="JMU-4Y-1bu"/>
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="vJD-zy-8uh">
                             <connections>
-                                <segue destination="hIe-Ri-Bzj" kind="presentation" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="TG5-zj-l64"/>
+                                <segue destination="hIe-Ri-Bzj" kind="presentation" identifier="finderSegue" modalPresentationStyle="overFullScreen" modalTransitionStyle="crossDissolve" id="TG5-zj-l64"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -90,6 +90,9 @@
                                         </constraints>
                                         <color key="barTintColor" name="main"/>
                                         <textInputTraits key="textInputTraits"/>
+                                        <connections>
+                                            <outlet property="delegate" destination="dQK-0p-h7v" id="qca-f9-BkQ"/>
+                                        </connections>
                                     </searchBar>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pNm-D3-vlV">
                                         <rect key="frame" x="0.0" y="50" width="355" height="315"/>
@@ -135,16 +138,22 @@
                                     </view>
                                 </subviews>
                             </stackView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="nfc-Tc-Dbm">
+                                <rect key="frame" x="169" y="315" width="37" height="37"/>
+                                <color key="color" name="main"/>
+                            </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="6GJ-87-hEN" secondAttribute="bottom" id="9em-iQ-ghT"/>
+                            <constraint firstItem="nfc-Tc-Dbm" firstAttribute="centerY" secondItem="pNm-D3-vlV" secondAttribute="centerY" id="TYX-wV-ars"/>
                             <constraint firstItem="6GJ-87-hEN" firstAttribute="leading" secondItem="r2T-q4-Zlr" secondAttribute="leading" id="XkD-kY-5Kt"/>
                             <constraint firstItem="6GJ-87-hEN" firstAttribute="top" secondItem="zN4-S9-agP" secondAttribute="top" id="fTZ-oF-SSc"/>
                             <constraint firstItem="VYP-Ha-0Ww" firstAttribute="trailing" secondItem="zN4-S9-agP" secondAttribute="trailing" constant="-10" id="g79-5h-ZDg"/>
                             <constraint firstItem="zN4-S9-agP" firstAttribute="bottom" secondItem="VYP-Ha-0Ww" secondAttribute="bottom" constant="10" id="gG1-SQ-cbY"/>
                             <constraint firstAttribute="trailing" secondItem="6GJ-87-hEN" secondAttribute="trailing" id="sTf-nq-1Ny"/>
                             <constraint firstItem="VYP-Ha-0Ww" firstAttribute="leading" secondItem="zN4-S9-agP" secondAttribute="leading" constant="10" id="siV-2A-rdt"/>
+                            <constraint firstItem="nfc-Tc-Dbm" firstAttribute="centerX" secondItem="pNm-D3-vlV" secondAttribute="centerX" id="tgH-14-yuy"/>
                             <constraint firstItem="VYP-Ha-0Ww" firstAttribute="top" secondItem="zN4-S9-agP" secondAttribute="top" constant="10" id="wHl-h3-BJu"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zN4-S9-agP"/>
@@ -159,6 +168,7 @@
                     <connections>
                         <outlet property="labelAddress" destination="yGX-hA-9DM" id="Mfs-b3-OV7"/>
                         <outlet property="labelName" destination="psY-8c-ubq" id="29K-2Y-AvV"/>
+                        <outlet property="loading" destination="nfc-Tc-Dbm" id="dnY-ZE-kRB"/>
                         <outlet property="mapView" destination="pNm-D3-vlV" id="tOG-U9-KNq"/>
                         <outlet property="searchBar" destination="svo-jf-3vF" id="VGb-38-WY5"/>
                         <outlet property="viewInfo" destination="jqn-C8-FBq" id="B0w-SB-W01"/>
@@ -210,6 +220,12 @@ que você deseja conhecer...</string>
                                     <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="nGu-io-R5a">
                                         <rect key="frame" x="10" y="192" width="315" height="365"/>
                                     </mapView>
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldh-sC-eHM">
+                                        <rect key="frame" x="10" y="81" width="225" height="30"/>
+                                        <nil key="textColor"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
                                     <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4XK-iu-g4Z">
                                         <rect key="frame" x="0.0" y="0.0" width="335" height="567"/>
                                         <subviews>
@@ -224,12 +240,6 @@ que você deseja conhecer...</string>
                                             <constraint firstItem="A28-cX-Fyz" firstAttribute="centerY" secondItem="4XK-iu-g4Z" secondAttribute="centerY" id="YQd-2f-2Bu"/>
                                         </constraints>
                                     </view>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ldh-sC-eHM">
-                                        <rect key="frame" x="10" y="81" width="225" height="30"/>
-                                        <nil key="textColor"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <textInputTraits key="textInputTraits"/>
-                                    </textField>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
